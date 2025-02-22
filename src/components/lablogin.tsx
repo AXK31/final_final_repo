@@ -62,7 +62,7 @@ export function LoginFormLab({
                     </InputOTPGroup>
                 </InputOTP>
                 </div>
-              <Link href="/docdash">
+              <Link href="/lab/labdash">
               <Button type="submit" className="w-full">
                 Login
               </Button></Link>
