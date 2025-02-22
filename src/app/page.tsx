@@ -152,31 +152,74 @@ const FeaturesCarousel = () => {
 const DummyContent = () => {
   return (
     <>
-      {[...new Array(3).fill(1)].map((_, index) => (
+      {[...new Array(1).fill(1)].map((_, index) => (
         <div key={"dummy-content" + index} className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
           <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
-            <span className="font-bold text-neutral-700 dark:text-neutral-200">AI-powered patient insights</span>
-            Track and monitor patient records effortlessly.
+            <span className="font-bold text-neutral-700 dark:text-neutral-200"></span>
+            An advanced health analysis system leveraging Large Language Models (LLMs) to process medical data, analyze symptoms, and generate intelligent insights. It provides multilingual summaries, enabling seamless communication across different languages and assisting healthcare professionals and patients with accurate diagnostics and personalized treatment recommendations. 
           </p>
-          <Image
-            src="https://assets.aceternity.com/macbook.png"
-            alt="Macbook mockup from Aceternity UI"
-            height="500"
-            width="500"
-            className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-          />
         </div>
       ))}
     </>
   );
 };
 
+const DummyContent1 = () => {
+  return (
+    <>
+      {[...new Array(1).fill(1)].map((_, index) => (
+        <div key={"dummy-content" + index} className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+          <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+            <span className="font-bold text-neutral-700 dark:text-neutral-200"></span>
+            Efficient Patient Monitoring with Health Score & Lab Report Analysis  
+A smart healthcare solution that evaluates lab reports and generates a health score to track patient well-being. By integrating medical data, trends, and risk assessments, it enables proactive healthcare management, early anomaly detection, and personalized treatment insights for improved patient outcomes. 
+          </p>
+        </div>
+      ))}
+    </>
+  );
+};
+
+const DummyContent2 = () => {
+  return (
+    <>
+      {[...new Array(1).fill(1)].map((_, index) => (
+        <div key={"dummy-content" + index} className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+          <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+            <span className="font-bold text-neutral-700 dark:text-neutral-200"></span>
+            Secure Patient Records with Advanced Data Protection  
+Patient records are safeguarded through segregation of private and medical data, ensuring confidentiality and compliance. Data ownership is shared between the patient and doctor, allowing controlled access. Security is further enhanced with encryption and a timed access window, where the patient defines the duration of data availability for added privacy and control. 
+          </p>
+        </div>
+      ))}
+    </>
+  );
+};
+
+const DummyContent3 = () => {
+  return (
+    <>
+      {[...new Array(1).fill(1)].map((_, index) => (
+        <div key={"dummy-content" + index} className="bg-[#F5F5F7] dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4">
+          <p className="text-neutral-600 dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto">
+            <span className="font-bold text-neutral-700 dark:text-neutral-200"></span>
+            Real-Time Patient Monitoring with Secure Data Access  
+Patient health is continuously tracked using real-time monitoring, ensuring timely interventions. Data access is secured through segregation of private and medical information, with shared ownership between the patient and doctor. Enhanced security measures include encryption and a timed access window, allowing the patient to define how long data remains available for viewing.
+          </p>
+        </div>
+      ))}
+    </>
+  );
+};
+
+
+
 const data = [
-  { category: "Artificial Intelligence", title: "AI-powered Health Analysis", src: "https://images.unsplash.com/photo-1593508512255-86ab42a8e620?q=80&w=3556&auto=format&fit=crop", content: <DummyContent /> },
-  { category: "Productivity", title: "Efficient Patient Monitoring", src: "https://images.unsplash.com/photo-1531554694128-c4c6665f59c2?q=80&w=3387&auto=format&fit=crop", content: <DummyContent /> },
-  { category: "Security", title: "Secure Patient Records", src: "https://images.unsplash.com/photo-1713869791518-a770879e60dc?q=80&w=2333&auto=format&fit=crop", content: <DummyContent /> },
-  { category: "Doctor Dashboard", title: "Monitor and Track Patients", src: "https://images.unsplash.com/photo-1599202860130-f600f4948364?q=80&w=2515&auto=format&fit=crop", content: <DummyContent /> },
-  { category: "Real-time Monitoring", title: "Instant Health Updates", src: "https://images.unsplash.com/photo-1602081957921-9137a5d6eaee?q=80&w=2793&auto=format&fit=crop", content: <DummyContent /> },
+  { category: "Artificial Intelligence", title: "AI-powered Health Analysis", src: "https://media.istockphoto.com/id/1468430468/photo/medical-technology-doctor-use-ai-robots-for-diagnosis-care-and-increasing-accuracy-patient.jpg?s=1024x1024&w=is&k=20&c=mpNkEpJuIAc019d0Sh8ZfaVT5vOV1wNUP7H-OqhNDeg=", content:<DummyContent /> },
+  { category: "Productivity", title: "Efficient Patient Monitoring", src: "https://media.istockphoto.com/id/931906832/photo/physician-consulting-senior-patients.webp?s=2048x2048&w=is&k=20&c=mhTkxD5jm1QnwLWAPX1dwLrsrgs2UZw923NWBmLfOFQ=", content: <DummyContent1 /> },
+  { category: "Security", title: "Secure Patient Records", src: "https://media.istockphoto.com/id/1901480712/photo/woman-using-mobile-phone-and-laptop-computer-at-home-cyber-security-concept.jpg?s=1024x1024&w=is&k=20&c=fi3koHydZkYv8DAzuBCNifQFNgArnk2SP30q3aWbAgQ=", content: <DummyContent2 /> },
+
+  { category: "Real-time Monitoring", title: "Instant Health Updates", src: "https://media.istockphoto.com/id/1446891396/photo/hand-holding-magnifier-glass-with-red-triangle-caution-warning-sign-for-notification-error.jpg?s=1024x1024&w=is&k=20&c=Uin10k6rFMdKt9APlhSGuAloC7_GEgfiruMUCcsYUVs=", content: <DummyContent3 /> },
 ];
 
 const WelcomePage = () => {
