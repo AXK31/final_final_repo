@@ -46,7 +46,7 @@ export function LoginFormPharm({
                 />
          
               </div>
-              <Link href="/docdash">
+              <Link href="/pharm/pharmdash">
               <Button type="submit" className="w-full">
                 Login
               </Button></Link>
