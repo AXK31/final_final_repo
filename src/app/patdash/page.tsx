@@ -79,7 +79,7 @@ function Navbar({ className }: { className?: string }) {
 
         <MenuItem setActive={setActive} active={active} item="Notifications">
           <div className="flex flex-col space-y-2 p-2">
-            <HoveredLink href="/patient/appointments">
+            <HoveredLink href="/patdash/notifications">
               <MessageCircle className="mr-2 inline" /> Messages received
             </HoveredLink>
             <HoveredLink href="/patient/upcoming">

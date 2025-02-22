@@ -70,7 +70,7 @@ const Navbar = () => {
 
   return (
     <nav className="bg-black text-white p-4 flex justify-between items-center relative">
-      <h1 className="text-xl font-bold text-blue-400">MedAI</h1>
+      <h1 className="text-xl font-bold text-blue-400">MedicAI</h1>
       <div className="flex space-x-6 items-center">
         <Link href="/"><span className="hover:text-blue-400 cursor-pointer">Home</span></Link>
         <div 

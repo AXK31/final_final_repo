@@ -120,7 +120,7 @@ function Navbar({ className }: { className?: string }) {
         </MenuItem>
         <MenuItem setActive={setActive} active={active} item="Notification">
           <div className="flex flex-col space-y-4 text-sm">
-            <HoveredLink href="/docdash/profile">
+            <HoveredLink href="/docdash/notifications">
             <Stethoscope className="mr-2 inline" />View Appointments
             </HoveredLink>
           </div>
