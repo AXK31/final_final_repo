@@ -1,6 +1,6 @@
 import { GalleryVerticalEnd } from "lucide-react"
 import "@/app/globals.css"; // Adjust the path if needed
-import { LoginFormLab } from "@/components/lablogin"
+import { LoginFormPharm } from "@/components/pharmlogin"
 
 
 export default function LoginPage() {
@@ -13,8 +13,8 @@ export default function LoginPage() {
             </div>
             MedicAI
           </a>
-          <LoginFormLab />
+          <LoginFormPharm />
         </div>
       </div>
     )
-  }
+  }   

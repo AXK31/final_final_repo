@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
+import { InputOTP, InputOTPGroup, InputOTPSlot, InputOTPSeparator } from "@/components/ui/input-otp"
 
 export function LoginForm({
   className,
@@ -44,8 +45,23 @@ export function LoginForm({
                   placeholder="1234567890"
                   required
                 />
-         
-              </div>
+                </div>
+                <div className="grid gap-2">
+                <Label htmlFor="otp">Enter OTP</Label>
+                <InputOTP maxLength={6}>
+                <InputOTPGroup>
+                    <InputOTPSlot index={0} />
+                    <InputOTPSlot index={1} />
+                    <InputOTPSlot index={2} />
+                </InputOTPGroup>
+                <InputOTPSeparator />
+                <InputOTPGroup>
+                    <InputOTPSlot index={3} />
+                    <InputOTPSlot index={4} />
+                    <InputOTPSlot index={5} />
+                    </InputOTPGroup>
+                </InputOTP>
+                </div>
               <Link href="/docdash">
               <Button type="submit" className="w-full">
                 Login
