@@ -5,7 +5,7 @@ import Link from "next/link";
 import "@/app/globals.css";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { UploadCloud, FileText, Home, ClipboardList, User, Stethoscope, Files, Settings, MessageCircle } from "lucide-react";
+import { UploadCloud, FileText, Home, ClipboardList, User, Stethoscope, Files, Settings, MessageCircle, LogOut } from "lucide-react";
 import { HoveredLink, Menu, MenuItem } from "@/components/ui/navbar-menu";
 import { cn } from "@/lib/utils";
 import { FileUpload } from "@/components/ui/fileupload";
@@ -14,18 +14,16 @@ const PatientDashboard = () => {
   const router = useRouter();
   const [files, setFiles] = useState<File[]>([]);
 
-const handleFileUpload = (files: File[]) => {
+  const handleFileUpload = (files: File[]) => {
     setFiles(files);
     console.log(files);
   };
-
-
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-300 to-white flex flex-col items-center">
       {/* Navbar */}
       <Navbar className="top-1" />
-      
+
       {/* Welcome Section */}
       <div className="text-center mt-20 p-20">
         <h1 className="text-3xl font-bold text-blue-900">Welcome to Your Health Dashboard</h1>
@@ -50,7 +48,7 @@ const handleFileUpload = (files: File[]) => {
           <p className="text-sm text-gray-600 mt-10">
             Provide your health details to receive personalized insights.
           </p>
-          <Button 
+          <Button
             className="mt-20 w-full bg-blue-600 hover:bg-blue-700 text-white"
             onClick={() => router.push("/patdash/form")}
           >
@@ -61,56 +59,50 @@ const handleFileUpload = (files: File[]) => {
     </div>
   );
 };
+
 function Navbar({ className }: { className?: string }) {
-    const [active, setActive] = useState<string | null>(null);
-    return (
-      <div className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}>
-        <Menu setActive={setActive}>
-          <MenuItem 
-            setActive={setActive} 
-            active={active} 
-            item="Home"
-          >
-            <HoveredLink href="/patdash/details">
-              <Home className="mr-2 inline" /> Dashboard
+  const router = useRouter();
+  const [active, setActive] = useState<string | null>(null);
+
+  const handleLogout = () => {
+    router.push("/login"); // Redirect to login page after logout
+  };
+
+  return (
+    <div className={cn("fixed top-10 inset-x-0 max-w-2xl mx-auto z-50", className)}>
+      <Menu setActive={setActive}>
+        <MenuItem setActive={setActive} active={active} item="Home">
+          <HoveredLink href="/patdash/details">
+            <Home className="mr-2 inline" /> Dashboard
+          </HoveredLink>
+        </MenuItem>
+
+        <MenuItem setActive={setActive} active={active} item="Notifications">
+          <div className="flex flex-col space-y-2 p-2">
+            <HoveredLink href="/patient/appointments">
+              <MessageCircle className="mr-2 inline" /> Messages received
             </HoveredLink>
-          </MenuItem>
-  
-          
-  
-          <MenuItem 
-            setActive={setActive} 
-            active={active} 
-            item="Notifications"
-          >
-            <div className="flex flex-col space-y-2 p-2">
-              <HoveredLink href="/patient/appointments">
-                <MessageCircle className="mr-2 inline" /> Messages received
-              </HoveredLink>
-              <HoveredLink href="/patient/upcoming">
-                <Stethoscope className="mr-2 inline" /> Upcoming Appointments
-              </HoveredLink>
-            </div>
-          </MenuItem>
-  
-          <MenuItem 
-            setActive={setActive} 
-            active={active} 
-            item="Profile"
-          >
-            <div className="flex flex-col space-y-2 p-2">
-              <HoveredLink href="/patdash/profile">
-                <User className="mr-2 inline" /> View Profile
-              </HoveredLink>
-              <HoveredLink href="/patient/settings">
-                <Settings className="mr-2 inline" /> Settings
-              </HoveredLink>
-            </div>
-          </MenuItem>
-        </Menu>
-      </div>
-    );
-  }
-  
+            <HoveredLink href="/patient/upcoming">
+              <Stethoscope className="mr-2 inline" /> Upcoming Appointments
+            </HoveredLink>
+          </div>
+        </MenuItem>
+
+        <MenuItem setActive={setActive} active={active} item="Profile">
+          <div className="flex flex-col space-y-2 p-2">
+            <HoveredLink href="/patdash/profile">
+              <User className="mr-2 inline" /> View Profile
+            </HoveredLink>
+            <Button 
+              onClick={handleLogout} 
+              className="mt-2 flex items-center ">
+              <LogOut className="mr-2" /> Logout
+            </Button>
+          </div>
+        </MenuItem>
+      </Menu>
+    </div>
+  );
+}
 
 export default PatientDashboard;

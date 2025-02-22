@@ -1,8 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import "@/app/globals.css";
-
+import Link from "next/link";
 import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -34,7 +35,7 @@ const HealthForm = () => {
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      age: 0, // Ensure `age` is initialized
+      age: 0, // Ensure age is initialized
       gender: "",
       bloodType: "",
       symptoms: [],
@@ -42,13 +43,19 @@ const HealthForm = () => {
       smoking: "",
       alcohol: "",
       stressLevel: 5,
-      lastCheckup: null, // Ensure `null` instead of undefined
+      lastCheckup: null, // Ensure null instead of undefined
     },
   });
 
+
+
+  const router = useRouter();
+  
   const onSubmit = (data: any) => {
     console.log("Submitted Data:", data);
+    router.push("/patdash/formsubmit");
   };
+  
 
   const symptomsList = ["Fever", "Cough", "Fatigue", "Shortness of Breath", "Headache", "Nausea"];
 
@@ -173,8 +180,10 @@ const HealthForm = () => {
               />
             </div>
 
-            {/* Submit Button */}
-            <Button type="submit" className="w-full bg-blue-600 text-white">Submit Form</Button>
+          
+            <Button type="submit"  onClick={() => router.push('/patdash/form/submit')} className="w-full bg-blue-600 text-white">
+               Submit form 
+              </Button>
           </form>
         </CardContent>
       </Card>
@@ -182,4 +191,4 @@ const HealthForm = () => {
   );
 };
 
-export default HealthForm;
+export default HealthForm;
