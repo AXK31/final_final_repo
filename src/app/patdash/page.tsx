@@ -93,11 +93,13 @@ function Navbar({ className }: { className?: string }) {
             <HoveredLink href="/patdash/profile">
               <User className="mr-2 inline" /> View Profile
             </HoveredLink>
+            <HoveredLink href="/patient/patlogin">
             <Button 
               onClick={handleLogout} 
               className="mt-2 flex items-center ">
               <LogOut className="mr-2" /> Logout
             </Button>
+            </HoveredLink>
           </div>
         </MenuItem>
       </Menu>

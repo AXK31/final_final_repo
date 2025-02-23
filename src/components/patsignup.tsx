@@ -1,79 +1,44 @@
-"use client";
+'use client'
+import { cn } from "@/lib/utils"
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { signIn } from "next-auth/react";
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button"
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { createClient } from "@supabase/supabase-js";
+} from "@/components/ui/card"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 
-const supabase = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
-);
+import { patsign } from "@/utils/patsign";
 
-export function SigninFormPat() {
-  const [email, setEmail] = useState("");
-  const [name, setName] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPass, setConfirmPass] = useState("");
-  const [error, setError] = useState("");
-  const router = useRouter();
-
-  const handleSignup = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (password !== confirmPass) {
-      setError("Passwords do not match");
-      return;
-    }
-
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-      options: {
-        data: { name },
-      },
-    });
-
-    if (error) {
-      setError(error.message);
-      return;
-    }
-
-    alert("Signup successful! Check your email to verify your account.");
-    router.push("/patient/patlogin");
-  };
-
+export function SigninFormPat({
+  className,
+  ...props
+}: React.ComponentPropsWithoutRef<"div">) {
+ 
   return (
-    <div className="flex flex-col gap-6">
+    <div className={cn("flex flex-col gap-6", className)} {...props}>
+      
       <Card>
         <CardHeader>
-          <CardTitle className="text-2xl">Welcome to Patient Signup</CardTitle>
+          <CardTitle className="text-2xl">Welcome to patient Signup</CardTitle>
           <CardDescription>
-            Enter your name and email below to create your account.
+            Enter your name and email below to create your account
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleSignup}>
+          <form  action={patsign}>
             <div className="flex flex-col gap-6">
-              <div className="grid gap-2">
+            <div className="grid gap-2">
                 <Label htmlFor="name">Name</Label>
                 <Input
                   id="name"
-                  type="text"
-                  placeholder="Your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  type="name"
+                  name="patname"
+                  placeholder="abc"
                   required
                 />
               </div>
@@ -83,52 +48,42 @@ export function SigninFormPat() {
                   id="email"
                   type="email"
                   placeholder="m@example.com"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
+                  name="patmail"
                   required
                 />
+              </div>
+
+              <div className="grid gap-2">
+                <div className="flex items-center">
+                  <Label htmlFor="password">Password</Label>
+                  
+                </div>
+                <Input id="password" type="password" required name="entered_pass"/>
               </div>
               <div className="grid gap-2">
-                <Label htmlFor="password">Password</Label>
-                <Input
-                  id="password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  required
-                />
+                <div className="flex items-center">
+                  <Label htmlFor="password">Confirm Password</Label>
+                  
+                </div>
+                <Input id="password" type="password" required name="confirm_pass"/>
               </div>
-              <div className="grid gap-2">
-                <Label htmlFor="confirm_password">Confirm Password</Label>
-                <Input
-                  id="confirm_password"
-                  type="password"
-                  value={confirmPass}
-                  onChange={(e) => setConfirmPass(e.target.value)}
-                  required
-                />
-              </div>
-              {error && <p className="text-red-500">{error}</p>}
-              <Button type="submit" className="w-full">
+            
+              <Button type="submit"  className="w-full">
                 Signup
               </Button>
-              <Button
-                variant="outline"
-                className="w-full"
-                onClick={() => signIn("google")}
-              >
+              <Button variant="outline" className="w-full">
                 Signup with Google
               </Button>
             </div>
             <div className="mt-4 text-center text-sm">
               Already have an account?{" "}
-              <Link href="/patient/patlogin" className="underline">
+              <a href="/patient/patlogin" className="underline underline-offset-4">
                 Login
-              </Link>
+              </a>
             </div>
           </form>
         </CardContent>
       </Card>
-    </div>
-  );
+    </div>
+  )
 }

@@ -251,22 +251,35 @@ const WelcomePage = () => {
         <h3 className="text-xl font-semibold text-blue-400">Select Your Role</h3>
         <div className="flex justify-center space-x-6 mt-4">
           <Link href="/doctor/doclogin">
-            <Button variant="outline" className="text-black border-blue-400 bg-white hover:bg-blue-100 hover:text-blue-600">
-              Doctor
-            </Button>
+          <Button
+           variant="outline"
+            className="px-6 py-3 text-lg font-semibold text-black border-2 border-blue-500 bg-white rounded-xl shadow-sm transition-all hover:bg-blue-100 hover:text-blue-700 hover:border-blue-600 hover:scale-105"
+            >
+          Doctor
+          </Button>
+
           </Link>
           <Link href="/patient/patlogin">
-            <Button variant="outline" className="text-black border-blue-400 bg-white hover:bg-blue-100 hover:text-blue-600">
+          <Button
+           variant="outline"
+            className="px-6 py-3 text-lg font-semibold text-black border-2 border-blue-500 bg-white rounded-xl shadow-sm transition-all hover:bg-blue-100 hover:text-blue-700 hover:border-blue-600 hover:scale-105"
+            >
               Patient
             </Button>
           </Link>
           <Link href="/pharm/pharmlogin">
-            <Button variant="outline" className="text-black border-blue-400 bg-white hover:bg-blue-100 hover:text-blue-600">
+          <Button
+           variant="outline"
+            className="px-6 py-3 text-lg font-semibold text-black border-2 border-blue-500 bg-white rounded-xl shadow-sm transition-all hover:bg-blue-100 hover:text-blue-700 hover:border-blue-600 hover:scale-105"
+            >
               Pharmacy
             </Button>
           </Link>
           <Link href="/lab/lablogin">
-            <Button variant="outline" className="text-black border-blue-400 bg-white hover:bg-blue-100 hover:text-blue-600">
+          <Button
+           variant="outline"
+            className="px-6 py-3 text-lg font-semibold text-black border-2 border-blue-500 bg-white rounded-xl shadow-sm transition-all hover:bg-blue-100 hover:text-blue-700 hover:border-blue-600 hover:scale-105"
+            >
               Lab assistant
             </Button>
           </Link>

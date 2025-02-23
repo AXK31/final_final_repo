@@ -33,6 +33,7 @@ export function SigninFormDoc({
                   id="name"
                   type="name"
                   placeholder="abc"
+                  name="docname"
                   required
                 />
               </div>
@@ -42,6 +43,7 @@ export function SigninFormDoc({
                   id="email"
                   type="email"
                   placeholder="m@example.com"
+                  name="docmail"
                   required
                 />
               </div>
@@ -60,10 +62,10 @@ export function SigninFormDoc({
                 </div>
                 <Input id="password" type="password" required />
               </div>
-              <Link href="/doctor/doclogin" >
+             
               <Button type="submit" className="w-full">
                 Signup
-              </Button></Link>
+              </Button>
               <Button variant="outline" className="w-full">
                 Signup with Google
               </Button>

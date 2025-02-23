@@ -33,42 +33,31 @@ export function LoginForm({
                 <Input
                   id="name"
                   type="name"
-                  placeholder="abc"
+                  placeholder="N/A"
+                  name="loginname"
                   required
                 />
               </div>
             <div className="grid gap-2">
-                <Label htmlFor="phone">Mobile number</Label>
+                <Label htmlFor="mail">E-mail</Label>
                 <Input
-                  id="phone"
-                  type="phone"
-                  placeholder="1234567890"
+                  id="mail"
+                  type="mail"
+                  placeholder=""
+                  name="loginmail"
                   required
                 />
                 </div>
                 <div className="grid gap-2">
-                <Label htmlFor="otp">Enter OTP</Label>
-                <InputOTP maxLength={6}>
-                <InputOTPGroup>
-                    <InputOTPSlot index={0} />
-                    <InputOTPSlot index={1} />
-                    <InputOTPSlot index={2} />
-                </InputOTPGroup>
-                <InputOTPSeparator />
-                <InputOTPGroup>
-                    <InputOTPSlot index={3} />
-                    <InputOTPSlot index={4} />
-                    <InputOTPSlot index={5} />
-                    </InputOTPGroup>
-                </InputOTP>
+                  <Label htmlFor="password">Password</Label>
+                  <Input
+                  id="pass"
+                  type="password"
+                  name="loginpass"
+                  required
+                  />
                 </div>
-              <Link href="/docdash">
-              <Button type="submit" className="w-full">
-                Login
-              </Button></Link>
-              <Button variant="outline" className="w-full">
-                Send OTP
-              </Button>
+         
             </div>
             <div className="mt-4 text-center text-sm">
               Don&apos;t have an account?{" "}
